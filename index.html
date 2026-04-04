@@ -565,6 +565,7 @@
       border-bottom: 1px solid var(--border);
     }
     .contact-grid { grid-template-columns: 1fr; }
+    #certifications > .container > div { grid-template-columns: 1fr !important; }
     h2 { font-size: 1.8rem; }
     .pub-item { grid-template-columns: 1fr; }
     .pub-year { display: inline-block; margin-bottom: 0.25rem; }
@@ -616,6 +617,9 @@
         <div class="hero-badges animate">
           <span class="badge accent">IEEE Senior Member</span>
           <span class="badge">Assistant Professor</span>
+          <span class="badge">IEEE Computer Society</span>
+          <span class="badge">IEEE ITSS</span>
+          <span class="badge">IEEE TEMS</span>
         </div>
         <h1 class="animate delay-1">
           Can Dikmen
@@ -633,7 +637,7 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
             ORCID
           </a>
-          <a href="mailto:can.dikmen@istinye.edu.tr">
+          <a href="/cdn-cgi/l/email-protection#4d2e2c23632924262028230d243e39242334286328293863393f">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             Email
           </a>
@@ -832,6 +836,53 @@
 </section>
 
 <!-- INDUSTRY & PATENTS -->
+
+<!-- CERTIFICATIONS & OUTREACH -->
+<section id="certifications" style="background: var(--bg-secondary);">
+  <div class="container">
+    <div class="section-label">Professional Development</div>
+    <h2>Certifications &amp; Outreach</h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+
+      <!-- MathWorks Training -->
+      <div class="research-card" style="padding: 2rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+          <span class="research-icon" style="font-size: 1.2rem; margin: 0;">⚙️</span>
+          <h3 style="font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin: 0;">MathWorks Professional Training</h3>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+          7-course certification program via FİGES BuildUp Academy (2023), covering the full model-based design pipeline:
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+          <span class="badge">MATLAB Fundamentals</span>
+          <span class="badge">Simulink Fundamentals</span>
+          <span class="badge">Simscape</span>
+          <span class="badge">Stateflow</span>
+          <span class="badge">Image Processing</span>
+          <span class="badge">MATLAB Coder</span>
+          <span class="badge">Embedded Coder</span>
+        </div>
+      </div>
+
+      <!-- Outreach -->
+      <div class="research-card" style="padding: 2rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+          <span class="research-icon" style="font-size: 1.2rem; margin: 0;">🎓</span>
+          <h3 style="font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin: 0;">Science Outreach</h3>
+        </div>
+        <div style="padding: 1rem; background: var(--accent-dim); border-radius: 10px; border: 1px solid var(--border-accent);">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--accent); margin-bottom: 0.5rem; letter-spacing: 0.06em;">TÜBİTAK BİLİM SÖYLEŞİLERİ · 2023</div>
+          <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.35rem;">Invited Speaker: Intelligent Transportation Systems</p>
+          <p style="font-size: 0.82rem; color: var(--text-secondary);">Public science talk for K-12 students organized by TÜBİTAK (The Scientific and Technological Research Council of Turkey), Darende, Malatya.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY & PATENTS -->
 <section id="industry" style="background: var(--bg-secondary);">
   <div class="container">
     <div class="section-label">Industry &amp; Patents</div>
@@ -895,7 +946,7 @@
           </div>
           <div>
             <div class="contact-label">Email</div>
-            <div class="contact-value"><a href="mailto:can.dikmen@istinye.edu.tr">can.dikmen@istinye.edu.tr</a></div>
+            <div class="contact-value"><a href="/cdn-cgi/l/email-protection#2645474808424f4d4b4348664f55524f485f4308434253085254"><span class="__cf_email__" data-cfemail="9dfefcf3b3f9f4f6f0f8f3ddf4eee9f4f3e4f8b3f8f9e8b3e9ef">[email&#160;protected]</span></a></div>
           </div>
         </div>
         <div class="contact-item">
@@ -933,7 +984,7 @@
   &copy; 2026 Can Dikmen. All rights reserved.
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Navbar scroll effect
   const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
@@ -957,12 +1008,4 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-  document.querySelectorAll('.research-card, .pub-item, .course-card, .timeline-item, .contact-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
-</script>
-</body>
-</html>
+  document.que
