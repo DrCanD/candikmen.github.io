@@ -9,18 +9,23 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-primary: #1a1f2e;
-    --bg-secondary: #212738;
-    --bg-card: #272d40;
-    --bg-card-hover: #2e3550;
-    --accent: #3B82F6;
-    --accent-dim: rgba(59, 130, 246, 0.15);
-    --accent-glow: rgba(59, 130, 246, 0.08);
-    --text-primary: #E8ECF4;
-    --text-secondary: #9CA3AF;
-    --text-muted: #6B7280;
-    --border: rgba(255,255,255,0.09);
-    --border-accent: rgba(59, 130, 246, 0.25);
+    /* IEEE brand palette — Dark Blue 002855, IEEE Blue 00629B, Cyan 00B5E2 */
+    --bg-primary: #f4f7fb;
+    --bg-secondary: #e9eff6;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f6fafe;
+    --accent: #00629B;          /* IEEE Blue */
+    --accent-2: #00B5E2;        /* IEEE Cyan (decorative only) */
+    --accent-dark: #002855;     /* IEEE Dark Blue */
+    --accent-dim: rgba(0, 98, 155, 0.07);
+    --accent-glow: rgba(0, 181, 226, 0.14);
+    --text-primary: #002855;    /* IEEE Dark Blue */
+    --text-secondary: #4f6079;
+    --text-muted: #646d82;
+    --border: rgba(0, 40, 85, 0.12);
+    --border-accent: rgba(0, 98, 155, 0.30);
+    --shadow-card: 0 1px 2px rgba(0,40,85,0.05), 0 6px 20px rgba(0,40,85,0.07);
+    --shadow-card-hover: 0 4px 8px rgba(0,40,85,0.07), 0 14px 36px rgba(0,40,85,0.12);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -44,13 +49,13 @@
     top: 0;
     width: 100%;
     z-index: 100;
-    background: rgba(26, 31, 46, 0.88);
+    background: rgba(244, 247, 251, 0.82);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
     transition: box-shadow 0.3s;
   }
-  nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+  nav.scrolled { box-shadow: 0 4px 24px rgba(0,40,85,0.09); }
   .nav-inner {
     max-width: 1100px;
     margin: 0 auto;
@@ -284,7 +289,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--accent), transparent);
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
     opacity: 0;
     transition: opacity 0.3s;
   }
@@ -463,9 +468,9 @@
     letter-spacing: 0.02em;
   }
   .btn-cv:hover {
-    background: #2563EB;
+    background: #004f7d;
     transform: translateY(-1px);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.25);
+    box-shadow: 0 8px 30px rgba(0, 98, 155, 0.30);
   }
 
   /* ── CONTACT ── */
@@ -559,7 +564,7 @@
       top: 64px;
       left: 0;
       right: 0;
-      background: rgba(26, 31, 46, 0.95);
+      background: rgba(244, 247, 251, 0.97);
       backdrop-filter: blur(20px);
       padding: 1rem;
       border-bottom: 1px solid var(--border);
@@ -587,6 +592,25 @@
   .delay-2 { animation-delay: 0.2s; }
   .delay-3 { animation-delay: 0.3s; }
   .delay-4 { animation-delay: 0.4s; }
+
+  /* ── LIGHT THEME DEPTH ──
+     On a light background, flat borders read as weak. Soft shadows give
+     the cards the separation that the dark theme got for free from contrast. */
+  .research-card,
+  .course-card,
+  .cv-box,
+  .contact-item,
+  .contact-map,
+  .photo-frame {
+    box-shadow: var(--shadow-card);
+  }
+  .research-card:hover,
+  .course-card:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+  /* Media/news thumbnails sit better with a hairline than a heavy frame */
+  #media .research-card img[src*="logo_"] { opacity: 0.85; }
+  .photo-frame { box-shadow: 0 10px 40px rgba(20,33,58,0.12); }
 </style>
 </head>
 <body>
@@ -693,46 +717,69 @@
     <div class="section-label">Publications</div>
     <h2>Selected Publications</h2>
     <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">
-      Full list available on <a href="https://scholar.google.com/" target="_blank" style="color: var(--accent); text-decoration: none;">Google Scholar</a> and <a href="https://orcid.org/0000-0002-7747-7777" target="_blank" style="color: var(--accent); text-decoration: none;">ORCID</a>.
+      Full list available on <a href="https://scholar.google.com/citations?user=c4OrnOQAAAAJ" target="_blank" style="color: var(--accent); text-decoration: none;">Google Scholar</a> and <a href="https://orcid.org/0000-0002-7747-7777" target="_blank" style="color: var(--accent); text-decoration: none;">ORCID</a>.
     </p>
 
     <div class="pub-list">
       <div class="pub-item">
         <div class="pub-year">2026</div>
         <div>
-          <div class="pub-title">NeuroSentinel: Physics-Informed Neuromorphic Sentinel Architecture for Cross-Domain Fault Detection</div>
-          <div class="pub-authors"><strong>C. Dikmen</strong></div>
-          <span class="pub-venue">IEEE Trans. Industrial Informatics (TII)</span>
+          <div class="pub-title">A Physics-Guided Framework for Available Traction Power and In-Motion Charging</div>
+          <div class="pub-authors"><strong>İ. C. Dikmen</strong> et al.</div>
+          <span class="pub-venue"><a href="https://doi.org/10.1109/ACCESS.2026.3699203" target="_blank" style="color: var(--accent); text-decoration: none;">IEEE Access</a> · 14, 83959–83970</span>
         </div>
       </div>
       <div class="pub-item">
         <div class="pub-year">2026</div>
         <div>
-          <div class="pub-title">Mixture-of-Regressors Spiking Neural Network for Battery State-of-Charge Correction</div>
-          <div class="pub-authors"><strong>C. Dikmen</strong></div>
-          <span class="pub-venue">Engineering Applications of Artificial Intelligence (EAAI)</span>
+          <div class="pub-title">A Review on Fundamentals, Applications, Challenges and Current Status of Spiking Automotive Electronics</div>
+          <div class="pub-authors"><strong>İ. C. Dikmen</strong> et al.</div>
+          <span class="pub-venue">Int. J. Automotive Science and Technology (IJASTECH) · 10(2)</span>
         </div>
       </div>
       <div class="pub-item">
         <div class="pub-year">2026</div>
         <div>
-          <div class="pub-title">Spiking-Front-End Mixture of Experts for Cognitive Anti-Jamming in Tactical Networks</div>
-          <div class="pub-authors"><strong>C. Dikmen</strong></div>
-          <span class="pub-venue">IEEE Trans. Cognitive Communications and Networking (TCCN)</span>
+          <div class="pub-title">Comprehensive Modelling and Prediction of State of Health for LTO, LMO, and LFP Batteries Using Machine Learning</div>
+          <div class="pub-authors"><strong>İ. C. Dikmen</strong> et al.</div>
+          <span class="pub-venue">Electrica · 26</span>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2026</div>
+        <div>
+          <div class="pub-title">Physics-Informed LSTM and EKF Fusion for Robust Battery SoC Estimation</div>
+          <div class="pub-authors"><strong>İ. C. Dikmen</strong> et al.</div>
+          <span class="pub-venue">Turkish J. Science and Technology · 57–67</span>
         </div>
       </div>
       <div class="pub-item">
         <div class="pub-year">2025</div>
         <div>
-          <div class="pub-title">SNN-LSTM Hybrid Architecture for Battery Management Systems</div>
-          <div class="pub-authors"><strong>C. Dikmen</strong> et al.</div>
-          <span class="pub-venue">IEEE Trans. Transportation Electrification (TTE)</span>
+          <div class="pub-title">Battery State of Health Estimation Using an LLM Framework</div>
+          <div class="pub-authors"><strong>İ. C. Dikmen</strong> et al.</div>
+          <span class="pub-venue">IEEE Int. Symp. Quality Electronic Design (ISQED)</span>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div>
+          <div class="pub-title">Continuous Monitoring and Modeling of High-Frequency EM Pollution Using Cutting-Edge Regression Techniques</div>
+          <div class="pub-authors"><strong>İ. C. Dikmen</strong> et al.</div>
+          <span class="pub-venue">IEEE Access</span>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2022</div>
+        <div>
+          <div class="pub-title">Electrical Method for Battery Chemical Composition Determination</div>
+          <div class="pub-authors"><strong>İ. C. Dikmen</strong> et al.</div>
+          <span class="pub-venue">IEEE Access · 10, 6496–6504</span>
         </div>
       </div>
 
-      <!-- Add more publications as needed -->
       <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 1.5rem; font-style: italic;">
-        Additional publications in IEEE TIE, IEEE TII, and other Q1 venues. See full list on Google Scholar.
+        Selected peer-reviewed work. Full list, including conference papers and preprints, on Google Scholar and ORCID.
       </p>
     </div>
   </div>
@@ -819,7 +866,7 @@
     <!-- Graduate -->
     <div style="margin-bottom: 2.5rem;">
       <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
-        <span style="background: rgba(16, 185, 129, 0.15); color: #10b981; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 600; padding: 0.3rem 0.75rem; border-radius: 100px; letter-spacing: 0.06em;">GRADUATE</span>
+        <span style="background: rgba(0, 132, 61, 0.12); color: #00843D; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 600; padding: 0.3rem 0.75rem; border-radius: 100px; letter-spacing: 0.06em;">GRADUATE</span>
         <span style="color: var(--text-muted); font-size: 0.82rem;">İnönü University · 2022–2025</span>
       </div>
       <div class="teaching-grid" style="grid-template-columns: 1fr;">
@@ -862,7 +909,7 @@
     <!-- Associate Degree -->
     <div>
       <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
-        <span style="background: rgba(168, 85, 247, 0.15); color: #a855f7; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 600; padding: 0.3rem 0.75rem; border-radius: 100px; letter-spacing: 0.06em;">ASSOCIATE DEGREE</span>
+        <span style="background: rgba(119, 37, 131, 0.12); color: #772583; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 600; padding: 0.3rem 0.75rem; border-radius: 100px; letter-spacing: 0.06em;">ASSOCIATE DEGREE</span>
       </div>
 
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
@@ -880,11 +927,11 @@
         <div class="research-card" style="padding: 1.5rem;">
           <div class="course-code" style="margin-bottom: 1rem;">TURGUT ÖZAL UNIVERSITY · ARAPGİR VOCATIONAL SCHOOL · FULL-TIME · 2019–2020</div>
           <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-            <div style="font-size: 0.88rem; font-weight: 600; padding-left: 0.75rem; border-left: 2px solid #a855f7;">Sensors &amp; Transducers</div>
-            <div style="font-size: 0.88rem; font-weight: 600; padding-left: 0.75rem; border-left: 2px solid #a855f7;">Automotive Electrical Systems</div>
-            <div style="font-size: 0.88rem; font-weight: 600; padding-left: 0.75rem; border-left: 2px solid #a855f7;">Automotive Electronics</div>
-            <div style="font-size: 0.88rem; font-weight: 600; padding-left: 0.75rem; border-left: 2px solid #a855f7;">Special Design Motors</div>
-            <div style="font-size: 0.88rem; font-weight: 600; padding-left: 0.75rem; border-left: 2px solid #a855f7;">Measurement Techniques</div>
+            <div style="font-size: 0.88rem; font-weight: 600; padding-left: 0.75rem; border-left: 2px solid #772583;">Sensors &amp; Transducers</div>
+            <div style="font-size: 0.88rem; font-weight: 600; padding-left: 0.75rem; border-left: 2px solid #772583;">Automotive Electrical Systems</div>
+            <div style="font-size: 0.88rem; font-weight: 600; padding-left: 0.75rem; border-left: 2px solid #772583;">Automotive Electronics</div>
+            <div style="font-size: 0.88rem; font-weight: 600; padding-left: 0.75rem; border-left: 2px solid #772583;">Special Design Motors</div>
+            <div style="font-size: 0.88rem; font-weight: 600; padding-left: 0.75rem; border-left: 2px solid #772583;">Measurement Techniques</div>
           </div>
         </div>
       </div>
@@ -988,7 +1035,7 @@
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-dot" style="border-color: #10b981;"></div>
+        <div class="timeline-dot" style="border-color: #00843D;"></div>
         <div class="timeline-content">
           <h3>Search &amp; Rescue Pilot · Senior Captain</h3>
           <div class="org">Turkish Air Force</div>
@@ -1041,9 +1088,17 @@
         <div class="pub-item">
           <div class="pub-year">2026</div>
           <div>
+            <div class="pub-title">Hazard-Function-Based Spiking Neuron Family and N-Island Mixture-of-Experts Architecture for Neuromorphic Computing</div>
+            <div class="pub-authors">İstinye University</div>
+            <span class="pub-venue">TR 2026/007632 · TÜRKPATENT · Filed 2026</span>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-year">2026</div>
+          <div>
             <div class="pub-title">Event-Driven Neuromorphic Sentinel-Based Heterogeneous System-on-Chip Architecture and Method for Battery State Estimation</div>
             <div class="pub-authors">İstinye University</div>
-            <span class="pub-venue">TÜRKPATENT · Filed 2026</span>
+            <span class="pub-venue">TR 2026/004809 · TÜRKPATENT · Filed 2026</span>
           </div>
         </div>
         <div class="pub-item">
@@ -1051,7 +1106,7 @@
           <div>
             <div class="pub-title">Neuromorphic Battery Management System (nBMS)</div>
             <div class="pub-authors">I. C. Dikmen</div>
-            <span class="pub-venue">TR 2025/018585 · TÜRKPATENT</span>
+            <span class="pub-venue">TR 2025/018585 · TÜRKPATENT · REGISTERED 2026</span>
           </div>
         </div>
         <div class="pub-item">
