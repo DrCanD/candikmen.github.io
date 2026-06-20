@@ -611,6 +611,19 @@
   /* Media/news thumbnails sit better with a hairline than a heavy frame */
   #media .research-card img[src*="logo_"] { opacity: 0.85; }
   .photo-frame { box-shadow: 0 10px 40px rgba(20,33,58,0.12); }
+
+  /* Side-by-side card: text left, square image right, equal heights */
+  .split-card { display: grid; grid-template-columns: 1.08fr 0.92fr; align-items: stretch; }
+  .split-card .split-text { padding: 1.85rem 2rem; display: flex; flex-direction: column; justify-content: center; }
+  .split-card .split-media { background: #004AAD; display: flex; align-items: center; justify-content: center; min-height: 100%; }
+  .split-card .split-media img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .split-card .split-media.cover { background: var(--bg-secondary); }
+  .split-card .split-media.cover img { object-fit: cover; }
+  .split-card .split-media.promo { background: linear-gradient(180deg, #0093C7 0%, #01729C 100%); }
+  @media (max-width: 768px) {
+    .split-card { grid-template-columns: 1fr !important; }
+    .split-card .split-media img { height: auto; max-height: 360px; }
+  }
 </style>
 </head>
 <body>
@@ -987,7 +1000,7 @@
 
     <!-- DataMedX Hackathon -->
     <div class="research-card" style="padding: 0; margin-top: 2rem; overflow: hidden;">
-      <img src="DataMedXHackathlon.jpg" alt="DataMedX Hackathon 2 at İstinye University" style="width: 100%; height: 300px; object-fit: cover; object-position: center 42%; display: block; border-bottom: 1px solid var(--border);">
+      <img src="DataMedX_Hackathon.jpg" alt="DataMedX Hackathon 2 at İstinye University" style="width: 100%; height: 300px; object-fit: cover; object-position: center 42%; display: block; border-bottom: 1px solid var(--border);">
       <div style="padding: 1.5rem 2rem 2rem;">
         <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
           <span class="research-icon" style="font-size: 1.2rem; margin: 0;">🧬</span>
@@ -997,6 +1010,81 @@
         <p style="font-size: 0.85rem; color: var(--text-secondary);">
           Served as a mentor at DataMedX Hackathon 2, an İstinye University event where high-school students built AI and data-science solutions for healthcare on anonymized real-world clinical data over three days. <a href="https://aday.istinye.edu.tr/datamedx-hackathon" target="_blank" style="color: var(--accent); text-decoration: none;">Event page</a>
         </p>
+      </div>
+    </div>
+
+    <!-- ZeroTech Academy -->
+    <div class="research-card" style="padding: 0; margin-top: 2rem; overflow: hidden;">
+      <div class="split-card">
+        <div class="split-text">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
+            <span class="research-icon" style="font-size: 1.2rem; margin: 0;">🔋</span>
+            <h3 style="font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin: 0;">ZeroTech Academy · EV &amp; Next-Generation Vehicle Technologies</h3>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--accent); margin-bottom: 0.75rem; letter-spacing: 0.06em;">INSTRUCTOR · TEMSA SKODA SABANCI · 2025</div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7;">
+            One of the program's two instructors, responsible for the technical curriculum on battery systems, electric powertrains, charging infrastructure, and next-generation vehicle architectures. The rollout ran company-wide rather than at a single site, reaching R&amp;D, Sales (WE and EMEA), After-Sales Services, Operations, Human Resources, and support functions across the Adana plant and the Istanbul office in a phased plan.
+          </p>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; margin-top: 0.75rem;">
+            Each phase opened with a pre-test that mapped the baseline of every function and shaped the content for it. A post-test and a workshop afterward surfaced role-specific needs and fed the next phase. Across 315 employees the average knowledge score rose from 59.5 to 70.2, an 18% gain, with R&amp;D and Sales improving the most and a positive link between knowledge gain and operational performance. The program's effectiveness was documented in a published study (<a href="https://www.jebi-academic.org" target="_blank" style="color: var(--accent); text-decoration: none;">JEBI</a>, 2025).
+          </p>
+        </div>
+        <div class="split-media">
+          <img src="ZeroTech_Academy.jpg" alt="ZeroTech Academy — EV and next-generation vehicle technologies training">
+        </div>
+      </div>
+    </div>
+
+    <!-- ARC 2024 -->
+    <div class="research-card" style="padding: 0; margin-top: 2rem; overflow: hidden;">
+      <div class="split-card" style="grid-template-columns: 0.96fr 1.04fr;">
+        <div class="split-media cover">
+          <img src="ARC_2024.jpg" alt="Presenting NEUROSEC at ARC 2024 in Aveiro, Portugal">
+        </div>
+        <div class="split-text">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
+            <span class="research-icon" style="font-size: 1.2rem; margin: 0;">🔊</span>
+            <h3 style="font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin: 0;">NEUROSEC: FPGA-Based Neuromorphic Audio Security</h3>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--accent); margin-bottom: 0.75rem; letter-spacing: 0.06em;">CONFERENCE TALK · ARC 2024 · AVEIRO, PORTUGAL</div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7;">
+            Presented NEUROSEC at the 20th International Symposium on Applied Reconfigurable Computing (ARC 2024) in Aveiro, Portugal. The work brings neuromorphic computing to audio security on FPGA, reaching a 94% threat-detection rate and holding up against FGSM and PGD adversarial attacks at a 5.39 dB SNR. The full paper appears in the ARC 2024 proceedings (<a href="https://doi.org/10.1007/978-3-031-55673-9_10" target="_blank" style="color: var(--accent); text-decoration: none;">Springer LNCS</a>, pp. 134–147).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- UITP Geneva 2016 -->
+    <div class="research-card" style="padding: 0; margin-top: 2rem; overflow: hidden;">
+      <img src="UITP_Geneva_2016.jpg" alt="UITP Training Programme on Electric Buses, Geneva — TOSA electric bus depot" style="width: 100%; height: 300px; object-fit: cover; object-position: center 40%; display: block; border-bottom: 1px solid var(--border);">
+      <div style="padding: 1.5rem 2rem 2rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
+          <span class="research-icon" style="font-size: 1.2rem; margin: 0;">🚌</span>
+          <h3 style="font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin: 0;">UITP Training Programme on Electric Buses</h3>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--accent); margin-bottom: 0.5rem; letter-spacing: 0.06em;">CERTIFICATION · UITP CENTRE FOR TRAINING · GENEVA · SEP 2016</div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);">
+          Completed the UITP Centre for Training programme on electric buses in Geneva, Switzerland (26–28 September 2016), including a technical visit to the city's TOSA flash-charging electric bus system.
+        </p>
+      </div>
+    </div>
+
+    <!-- Otomotiv Yaz Kampi 2024 -->
+    <div class="research-card" style="padding: 0; margin-top: 2rem; overflow: hidden;">
+      <div class="split-card">
+        <div class="split-text">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem;">
+            <span class="research-icon" style="font-size: 1.2rem; margin: 0;">⚡</span>
+            <h3 style="font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin: 0;">Electric and Hydrogen Vehicles: Past to Present</h3>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--accent); margin-bottom: 0.75rem; letter-spacing: 0.06em;">INVITED TALK · OTOMOTIV YAZ KAMPI (OSD) · JUL 2024</div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7;">
+            Invited speaker at the 4th Automotive Summer Camp (Otomotiv Yaz Kampı), the online program run by the Automotive Manufacturers Association of Türkiye (OSD) and supported by OİB. Delivered the session on the past-to-present arc of electric and hydrogen vehicles together with Teoman Karadağ, to university students exploring careers in the automotive industry. The camp draws the sector's leading manufacturers and reaches a large national student audience each year.
+          </p>
+        </div>
+        <div class="split-media promo">
+          <img src="Otomotiv_YazKampi_2024.jpg" alt="Otomotiv Yaz Kampı 2024 — talk on electric and hydrogen vehicles with Teoman Karadağ">
+        </div>
       </div>
     </div>
 
